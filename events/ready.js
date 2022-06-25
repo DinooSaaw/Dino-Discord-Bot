@@ -14,9 +14,9 @@ module.exports = {
     .setTimestamp()
     .setThumbnail(client.user.displayAvatarURL());
 
-    // webhookClient.send({
-    //     embeds: [online],
-    // });
+    webhookClient.send({
+        embeds: [online],
+    });
 
     }
 }
