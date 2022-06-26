@@ -36,7 +36,7 @@ client.on('guildBanAdd', (ban) => {
     let welcomechannel = client.channels.cache.get('989035348497674240')
     welcomechannel.send(`${ban.user} Just got fucking dropped!`)
 
-	const ban = new MessageEmbed()
+	const banmessage = new MessageEmbed()
     .setTitle('Banned')
     .setDescription(`${ban.user} Is Now Banned!`)
     .setColor('#ff6666')
@@ -44,7 +44,7 @@ client.on('guildBanAdd', (ban) => {
     .setThumbnail(ban.user.avatarURL());
 
     webhookClient.send({
-        embeds: [ban],
+        embeds: [banmessage],
     });
 })
 
