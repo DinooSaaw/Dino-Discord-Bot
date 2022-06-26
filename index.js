@@ -52,7 +52,7 @@ client.on('guildBanRemove', (ban) => {
     let welcomechannel = client.channels.cache.get('989035348497674240')
     welcomechannel.send(`${ban.user} Just got picked up!`)
 
-	const ban = new MessageEmbed()
+	const unban = new MessageEmbed()
     .setTitle('Unbanned')
     .setDescription(`${ban.user} Is Now Unbanned!`)
     .setColor('#82f282')
@@ -60,7 +60,7 @@ client.on('guildBanRemove', (ban) => {
     .setThumbnail(ban.user.avatarURL());
 
     webhookClient.send({
-        embeds: [ban],
+        embeds: [unban],
     });
 })
 
