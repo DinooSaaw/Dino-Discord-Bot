@@ -24,6 +24,7 @@ for (const file of eventFiles) {
 
 client.on('guildMemberAdd', (member) => {
     let welcomechannel = client.channels.cache.get('989035348497674240')
+	console.log(member)
     welcomechannel.send(`Welcome ${member}! \n Make sure you have a read of the rules`)
 })
 
