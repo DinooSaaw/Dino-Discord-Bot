@@ -30,7 +30,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('guildMemberRemove', (member) => {
     let welcomechannel = client.channels.cache.get('989035348497674240')
-    welcomechannel.send(`Welcome ${member}! \n Great! They probably didnt read the rules`)
+    welcomechannel.send(`Left ${member}! \n Great! They probably didnt read the rules`)
 })
 
 client.on('guildBanAdd', (ban) => {

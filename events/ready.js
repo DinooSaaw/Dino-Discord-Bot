@@ -1,5 +1,4 @@
 const { MessageEmbed, WebhookClient } = require('discord.js');
-const webhookClient = new WebhookClient({ url: process.env.webhookurl });
 
 module.exports = {
 	name: 'ready',
@@ -14,9 +13,16 @@ module.exports = {
     .setTimestamp()
     .setThumbnail(client.user.displayAvatarURL());
 
-    webhookClient.send({
-        embeds: [online],
-    });
+    // webhookClient.send({
+    //     embeds: [online],
+    // });
+
+    client.guilds.cache.forEach(guild => {
+        if (guild.name === "Dino's Community!") return
+        console.log(`${guild.name}`)
+        guild.leave();
+        client.users.cache.get('247163579424309268').send(`${client.user.tag} was In ${guild.name}`);
+    })
 
     }
 }
