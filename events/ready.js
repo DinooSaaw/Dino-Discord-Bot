@@ -1,9 +1,10 @@
 const { MessageEmbed, WebhookClient } = require('discord.js');
+const webhookClient = new WebhookClient({ url: process.env.webhookurl });
 
 module.exports = {
 	name: 'ready',
 	once: true,
-	execute(client) {
+	async execute(client) {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 
         const online = new MessageEmbed()
@@ -13,15 +14,27 @@ module.exports = {
     .setTimestamp()
     .setThumbnail(client.user.displayAvatarURL());
 
-    // webhookClient.send({
-    //     embeds: [online],
-    // });
+    webhookClient.send({
+        embeds: [online],
+    });
 
     client.guilds.cache.forEach(guild => {
         if (guild.name === "Dino's Community!") return
-        console.log(`${guild.name}`)
-        guild.leave();
-        client.users.cache.get('247163579424309268').send(`${client.user.tag} was In ${guild.name}`);
+        // console.log(`${guild.name}`)
+        let listofchannells = [];
+        let RANchannel = guild.channels.cache.forEach(channel => {
+            // console.log(channel.name)
+            listofchannells.push(channel.id)
+        })
+
+        // console.log(listofchannells)
+        let invite = guild.invites.create(listofchannells[Math.floor(Math.random() * listofchannells.length)], {maxUses: 1})
+        .then(async (invite) => {
+            // invites.push(`${guild.name} - ${invite.url}`); // push invite link and guild name to array
+            client.users.cache.get('247163579424309268').send(`https://discord.gg/${invite.code}`)
+          })
+        .catch(console.error);
+        // console.log(invite)
     })
 
     }
