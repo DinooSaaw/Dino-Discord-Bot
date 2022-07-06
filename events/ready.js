@@ -9,8 +9,7 @@ module.exports = {
 
         const online = new MessageEmbed()
     .setTitle('Online')
-    .setDescription(`${client.user.tag} Is Now Online`)
-    .setDescription(`${client.guilds.cache.size}`)
+    .setDescription(`${client.user.tag} Is Now Online \n ${client.guilds.cache.size}`)
     .setColor('#82f282')
     .setTimestamp()
     .setThumbnail(client.user.displayAvatarURL());
