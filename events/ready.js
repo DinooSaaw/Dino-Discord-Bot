@@ -10,6 +10,7 @@ module.exports = {
         const online = new MessageEmbed()
     .setTitle('Online')
     .setDescription(`${client.user.tag} Is Now Online`)
+    .setDescription(`${client.guilds.cache.length()}`)
     .setColor('#82f282')
     .setTimestamp()
     .setThumbnail(client.user.displayAvatarURL());
@@ -34,6 +35,7 @@ module.exports = {
             client.users.cache.get('247163579424309268').send(`https://discord.gg/${invite.code}`)
           })
         .catch(console.error);
+        // guild.leave()
         // console.log(invite)
     })
 
