@@ -51,7 +51,7 @@ client.on('guildBanAdd', (ban) => {
 
 client.on('guildBanRemove', (ban) => {
     let welcomechannel = client.channels.cache.get('989035348497674240')
-    welcomechannel.send(`${ban.user} Just got picked up!`)
+    welcomechannel.send(`${ban.user} Just got back up!`)
 
 	const unban = new MessageEmbed()
     .setTitle('Unbanned')
